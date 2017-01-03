@@ -46,13 +46,13 @@ public class CooldownUtil{
     /**
      * @param uuid the uuid of the player that has the cooldown
      * @param type the string identifier of the cooldown
-     * @return a String formated #.# displaying the seconds remaining until expire
+     * @return a String formated #.## displaying the seconds remaining until expire
      */
     public static String getCooldown(UUID uuid, String type){
         DecimalFormat df = new DecimalFormat("#.#");
         double time = table.contains(uuid, type) ? table.get(uuid, type) : 0;
         time -= System.currentTimeMillis();
         time /= 1000;
-        return df.format(time).toString();
+        return df.format(time);
     }
 }

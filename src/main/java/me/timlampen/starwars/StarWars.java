@@ -1,7 +1,10 @@
 package me.timlampen.starwars;
 
-import me.timlampen.starwars.commands.BasicCommand;
-import me.timlampen.starwars.commands.CommandManager;
+import de.slikey.effectlib.EffectLib;
+import de.slikey.effectlib.EffectManager;
+import me.timlampen.starwars.forcepowers.PowerModule;
+import me.timlampen.starwars.jetpack.JetpackModule;
+import me.timlampen.starwars.lang.Lang;
 import me.timlampen.starwars.module.Module;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.event.Listener;
@@ -23,10 +26,12 @@ public class StarWars extends JavaPlugin{
     private Economy eco;
     private static StarWars instance;
     private final ArrayList<Module> modules = new ArrayList<>();
-    private final CommandManager commandManager;
+    private EffectManager effectManager;
+    private Lang lang;
 
     public StarWars(){
-        commandManager = new CommandManager();
+        instance = this;
+        registerModules(new PowerModule(), new JetpackModule());
     }
 
     @Override
@@ -36,7 +41,8 @@ public class StarWars extends JavaPlugin{
 
     @Override
     public void onEnable(){
-        instance = this;
+        effectManager = new EffectManager(EffectLib.instance());
+        lang = new Lang();
         setupEconomy();
         enableModules();
     }
@@ -91,16 +97,13 @@ public class StarWars extends JavaPlugin{
             StarWars.getInstance().getServer().getPluginManager().registerEvents(l, StarWars.getInstance());
     }
 
-    public void registerCommand(BasicCommand cmd){
-        getCommandManager().registerCommand(cmd);
-    }
-
-    public CommandManager getCommandManager() {
-        return commandManager;
-    }
 
     public boolean isDebugEnabled(){
         return true;
+    }
+
+    public EffectManager getEffectManager(){
+        return effectManager;
     }
 
 

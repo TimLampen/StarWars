@@ -23,8 +23,7 @@ public class YMLClassConfig extends YMLConfig {
         try {
             for (Field f : getClass().getDeclaredFields()) {
                 if (!getConfig().isSet(toID(f.getName())))
-                    getConfig().set(toID(f.getName()), f.get(getClass())); // TODO check for wrappers
-                else
+                    getConfig().set(toID(f.getName()), f.get(getClass()));
                     f.set(getClass(), getConfig().get(toID(f.getName())));
             }
         }catch (IllegalAccessException e){

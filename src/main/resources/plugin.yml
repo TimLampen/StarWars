@@ -1,0 +1,9 @@
+main: me.timlampen.starwars.StarWars
+name: StarWars
+version: 1.0
+depend: [EffectLib, Vault]
+author: [TimLampen]
+website: "timlampen.me"
+commands:
+  power:
+  jetpack:

@@ -16,8 +16,7 @@ import java.lang.reflect.Field;
  * If you have any problems or issues contact me at timplugins@gmail.com//
  */
 
-// To add a Language entry, simply add a line and give it a default value.
-// Do not modify String from others, unless for minor mistakes such as spelling.
+
 public class Lang extends YMLClassConfig{
 
     /*COLORS FOR ARGUMENTS (like things you replace with .replace(%BLAWBLAW%, object)
@@ -34,15 +33,19 @@ public class Lang extends YMLClassConfig{
 
     PREFIX = "&dStarWars&8&l> ",
 
-    // DEFAULTS FOR COMMANDS//
     COMMAND_NO_PERM = PREFIX + "&cYou are not allowed to run this command.",
-    COMMAND_ARGUMENTS_MISSING = PREFIX + "&cYou are missing arguments.",
-    COMMAND_ARGUMENTS_INVALID = PREFIX + "&cPlease use a &6%TYPE% &cfor argument &6%ARG%&7.",
+    COMMAND_ARGUMENTS_MISSING = PREFIX + "&cYou are missing arguments for the command: %CMD%.",
+    COMMAND_ARGUMENTS_INVALID = PREFIX + "&cPlease use a(n) &6%TYPE% &cfor argument &6%ARG%&7.",
     COMMAND_INVALID_SENDER = PREFIX +"&cYou must be a &6%TYPE% to be able to use this command.",
-    COMMAND_HELP_NONE = PREFIX + "&cThere is no help &7for this page",
-    COMMAND_HELP_NO_PERM = PREFIX + "&cYou are not allowed to view the help for this command.";
+    COMMAND_ADD_ITEM_TO_INV = PREFIX + "&aYou have added &6%AMT% %TYPE% &ato &6%INV% &ainventory.",
 
-//
+    FORCEPOWER_COOLDOWN = PREFIX + "&7This ability is still on cooldown for &b%COOLDOWN%s&c.",
+    FORCEPOWER_NO_POWER = PREFIX + "&cUnable to find a power under that name.",
+
+    JETPACK_ON_COOLDOWN = PREFIX + "&cYour jetpack is still on cooldown for &b%COOLDOWN%s&c.",
+    JETPACK_;
+
+
     public Lang(){
         super(new File(StarWars.getInstance().getDataFolder() + "/lang.yml"));
     }

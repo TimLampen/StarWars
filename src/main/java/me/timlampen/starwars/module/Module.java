@@ -2,7 +2,6 @@ package me.timlampen.starwars.module;
 
 
 import me.timlampen.starwars.StarWars;
-import me.timlampen.starwars.commands.BasicCommand;
 import org.bukkit.event.Listener;
 
 /**
@@ -19,10 +18,6 @@ public abstract class Module{
     public abstract void onEnable();
 
     public abstract void onDisable();
-
-    protected void registerCommand(BasicCommand command){
-        StarWars.getInstance().registerCommand(command);
-    }
 
     protected void registerListeners(Listener... listeners){
         StarWars.registerListeners(listeners);
